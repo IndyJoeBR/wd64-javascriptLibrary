@@ -1,0 +1,17 @@
+table {
+  border: thick solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  text-align: center;
+  background-color: lightskyblue;
+}
+
+.title {
+  text-align: center;
+  font-style: italic;
+}
+
+.sectionTitle {
+  text-align: center;
+}
