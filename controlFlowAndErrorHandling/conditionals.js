@@ -212,3 +212,34 @@ switch(instructor) {
 
 
 
+//  EVENING CHALLENGE
+//  switch/case to convert grades to letters.
+
+let grade = 97;
+
+switch(true) {
+  case (grade >= 90):
+    console.log("The student receives an A.");
+    break;
+  case(grade >= 80):
+    console.log("The student receives a B.");
+    break;  
+  case(grade >= 70):
+    console.log("The student receives a C.");
+    break;
+  case(grade >= 60):
+    console.log("The student receives a D.");
+    break;
+  default:
+    console.log("The student receives a F.");
+}
+
+let grade = 3;
+
+switch(3) {
+  case (grade):
+    console.log("It is not strict.");
+    break;
+  default:
+    console.log("It is strict."); 
+}    

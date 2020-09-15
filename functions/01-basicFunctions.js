@@ -55,3 +55,37 @@ let anon = function() {
 }
 
 anon();
+
+
+//  PARAMETERS
+//  Allow us to accept information already declared.
+
+/*
+function function-name(parameters) {
+  function-statement;
+  return value;
+}
+*/
+
+console.log("")  // Eye-pleasing space
+
+
+let firstName = "Jane";
+let lastName = "Doe";
+let checkThis = null;
+
+function greeting(first, last) {
+  console.log(`Hi ${first}! Welcome back!`)
+  console.log(`This is the first parameter: ${first}`)
+  console.log(`This is the second parameter: ${last}`)
+}
+
+greeting(firstName, lastName);
+
+console.log(typeof(checkThis));
+
+//  the function takes in the arguments in the order in which they are received...
+//  WHATEVER is sent first, is "first"
+//  ex:  function greeting(firstArgumentSent, secondArgumentSent) {...}
+
+
