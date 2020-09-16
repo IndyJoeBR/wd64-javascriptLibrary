@@ -52,9 +52,30 @@ console.log(becomesGlobal);
 //  Using LET
 //  The keyword 'let' is block scoped and not function scoped.
 
-console.log(letVariable);
-let letVariable = 'Using let';
+console.log(letVariable);          // throws an error because 'letVariable' hasn't been declared
+let letVariable = 'Using let';      
+//  This throws a ReferenceError due to ES6 not accepting undeclared variables.  
+//   This is to ensure we ALWAYS declare our variables first.
 
+
+//  Hoisting Function
+//  Function Declarations:
+//     The function can be called upon before JS has got down to it.
+hoistedFunc();
+
+function hoistedFunc() {
+  console.log('This is a hoisted function');
+  }
+
+
+//  Function Expressions:
+//    These are NOT hoisted.
+
+expressionFunc();
+
+let expressionFunc = function () {
+  console.log("Works?");
+}
 
 
 
