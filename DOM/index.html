@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro to DOM Manipulation</title>
+</head>
+<body>
+  
+
+<!-- 
+  DOM - Document Object Model
+
+  - Allows our JS to interact with HTML and CSS
+  - It is an object-oriented representation of a web page, which can be modified by JS
+
+  Two primary areas:
+  1) Making a model of an HTML page
+    - when the browser loads a webpage, it creates a model of the page in memory
+    - the DOM specifies the way in which the browser should structure the model in what is called the DOM tree.
+
+    The DOM is called an object model because the DOM tree itself is made up of objects.
+
+  2) Accessing and changing the HTML page
+    - the DOM also provides methods an dproperties to access and update each object in the model, which in turn updates what the user sees in the browser.
+
+  ACCESSING
+    Common methods for accessing a single element
+      - .getElementById()
+      - .querySelector()
+
+    Common methods for accessing multiple elements:
+      - .querySelectorAll()
+      - getElementByClassName()
+      - getElementByTagName
+
+  MANIPULATING
+    Common methods for working with HTML content
+           (   no () is correct   )
+      - .innerText     
+      - .innerHTML
+      - .textContent
+      - .createElement
+
+    Common methods for working with tag attributes
+      - className / id
+      - setAttribute()
+      - getAttribute()
+ -->
+
+<h1>Hello World</h1>
+
+br><hr>
+
+<!-- getElementById -->
+<p id="testParagraph">Sample Text</p>
+
+<!-- query selector all / innertext/innerhtml -->
+<p class="sampleClass">A class paragraph</p>
+<p class="sampleClass">A class paragraph</p>
+<p class="sampleClass">A class paragraph</p>
+<p class="sampleClass">A class paragraph</p>
+<!-- created with:  p.sampleClass*4      -->
+
+<span id="spanTest">Hello<span style="display:none;">World</span></span>
+
+  
+
+<br><hr>
+
+<!-- EVENT LISTENERS -->
+<!-- addEvenListener -->
+<button id="clickThis">Click!</button>
+
+br><hr>
+
+<!-- KEYUP 
+    creates a label for an input field
+    creates an input field to accept text
+-->
+
+<label for="nameInput">Enter your name:</label>
+
+<input type="text" id="nameInput" placeholder="Your name here">
+
+
+
+
+
+
+
+
+<!-- *****   PUT NOTHING BELOW THIS   ***** -->
+<script src="script.js"></script>
+</body>
+</html>

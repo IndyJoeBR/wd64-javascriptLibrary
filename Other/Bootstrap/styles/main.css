@@ -1,0 +1,31 @@
+.jumbotron {
+  background-color: darkgray;
+  background-image: url('/assets/navagatio-sm.png');
+  background-size: cover;
+}
+
+.headline {
+  color: rgb(2, 2, 92);
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.table {
+  margin: 2em;
+  padding: 1em;
+}
+
+.listBorder {
+  border:thin solid darkblue;
+}
+
+footer {
+  margin: 2em;
+  padding: 1em;
+}
