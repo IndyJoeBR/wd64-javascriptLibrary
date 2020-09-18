@@ -1,5 +1,25 @@
 
 
+let myFavMovie = {                                              
+  nameOfMovie : 'Pulp Fiction',
+  runTime : 178,
+  genre : 'Crime, Drama',
+  characters : [ charOne = {name : 'Jules Winnfield',
+                            age : 45,
+                            items : {item1:'gun', item2:'wallet that reads BMF'}},
+                 charTwo = {name : 'Vincent Vega',
+                            age : 40,
+                            items : {item1:'gun', item2:'newspaper'}}
+               ]     
+                 }
+  
+console.log(myFavMovie.nameOfMovie);
+console.log(`${myFavMovie.runTime} minutes`);
+console.log(myFavMovie.characters);
+console.log(`${myFavMovie.characters[0].name} has a ${myFavMovie.characters[0].items.item2}.`);
+
+
+
 
 /*
 let myFavMovie = {                                              
@@ -61,21 +81,3 @@ for(let i = 0; i <= 1; i++) {
 };
 */
 
-
-let myFavMovie = {                                              
-  nameOfMovie : 'Pulp Fiction',
-  runTime : 178,
-  genre : 'Crime, Drama',
-  characters : [ charOne = {name : 'Jules Winnfield',
-                            age : 45,
-                            items : {item1:'gun', item2:'wallet that reads BMF'}},
-                 charTwo = {name : 'Vincent Vega',
-                            age : 40,
-                            items : {item1:'gun', item2:'newspaper'}}
-               ]     
-                 }
-  
-console.log(myFavMovie.nameOfMovie);
-console.log(`${myFavMovie.runTime} minutes`);
-console.log(myFavMovie.characters);
-console.log(`${myFavMovie.characters[0].name} has a ${myFavMovie.characters[0].items.item2}.`);
