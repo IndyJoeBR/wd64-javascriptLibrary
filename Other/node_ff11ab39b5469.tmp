@@ -39,7 +39,7 @@ console.log(netflix.season1);
 */
 
 
-/*
+
 let myFavMovie = {                                              
   nameOfMovie : 'Lord of the Rings: Fellowship of the Ring',
   runTime : 228,
@@ -54,28 +54,9 @@ let myFavMovie = {
                  }
   
 console.log(myFavMovie.nameOfMovie);
-console.log(`${myFavMovie.runTime} minutes`);
+console.log(myFavMovie.runTime);
 console.log('The characters:');
-for(let i = 0; i <= 1; i++) {
-  console.log(`  name: ${myFavMovie.characters[i].name}, age: ${myFavMovie.characters[i].age}, item: ${myFavMovie.characters[i].items.weapon}`);
+for(let i = 1; i >= 1; i++) {
+  console.log(i);
+  //console.log(`  name: ${myFavMovie.characters[i].name}, age: ${myFavMovie.characters[i].age}, item: ${myFavMovie.characters[i].items.weapon}`);
 };
-*/
-
-
-let myFavMovie = {                                              
-  nameOfMovie : 'Pulp Fiction',
-  runTime : 178,
-  genre : 'Crime, Drama',
-  characters : [ charOne = {name : 'Jules Winnfield',
-                            age : 45,
-                            items : {item1:'gun', item2:'wallet that reads BMF'}},
-                 charTwo = {name : 'Vincent Vega',
-                            age : 40,
-                            items : {item1:'gun', item2:'newspaper'}}
-               ]     
-                 }
-  
-console.log(myFavMovie.nameOfMovie);
-console.log(`${myFavMovie.runTime} minutes`);
-console.log(myFavMovie.characters);
-console.log(`${myFavMovie.characters[0].name} has a ${myFavMovie.characters[0].items.item2}.`);
