@@ -5,9 +5,9 @@
     3) just declaring url (it is intialized in fetchResults)
 */
 
-const baseURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';     //1
-const key = 'AgRGQivYLCNUNJpdiHPKjkn0MP4PG1gG';                                 //2
-let url;                                                                        //3
+const baseURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';  // NYT endpoint
+const key = 'AgRGQivYLCNUNJpdiHPKjkn0MP4PG1gG';                              // NYT key
+let url;                                  // Declaration only, initialized in fetchResults
 
 //  REFERENCES TO DOM ELEMENTS
 //  Search Form (references to classes in the form and the form itself)
@@ -34,8 +34,8 @@ let pageNumber = 0;
 let displayNav = false;
 
 //  EVENT LISTENERS
-searchForm.addEventListener('submit', fetchResults);  // listening for 'submit'
-nextBtn.addEventListener('click', nextPage);    // listening for nextPage button
+searchForm.addEventListener('submit', fetchResults);    // listening for 'submit'
+nextBtn.addEventListener('click', nextPage);            // listening for nextPage button
 previousBtn.addEventListener('click', previousPage);    // listening for previousPage button
 
 
@@ -167,6 +167,5 @@ function previousPage(e) {          // 'e' - the original object - is passed int
   }
   fetchResults(e);                  // rerun the fetch with a new pageNumber in the URL (line 49)
   console.log("Page number:", pageNumber);    // log the page number for review
-
 };
 

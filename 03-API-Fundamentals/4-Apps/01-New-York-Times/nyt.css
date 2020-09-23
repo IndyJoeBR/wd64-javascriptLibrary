@@ -2,6 +2,11 @@ body {
   font-family: sans-serif;
 }
 
+.theHeadline {
+  font: "times new roman";
+  font-weight: bold;
+}
+
 .wrapper {
   width: 80%;
   margin: 0 auto;
