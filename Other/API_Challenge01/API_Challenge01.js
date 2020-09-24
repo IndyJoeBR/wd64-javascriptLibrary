@@ -4,8 +4,9 @@ let queryURL;     // declared only; instialized after fetch
 // DOM ELEMENT REFERENCES
 // Select Number of Facts to See
 const showQtyFacts = document.querySelector('.qtyOfFacts');
-const moreBtn = document.querySelector('.more');
-const lessBtn = document.querySelector('.less');
+const btnMore = document.querySelector('.more');
+const btnLess = document.querySelector('.less');
+const btnGetFacts = document.querySelector('.btnGetFacts');
 
 // Results Display
 const displaySection = document.querySelector('section');
@@ -13,24 +14,26 @@ const displaySection = document.querySelector('section');
 // Number of results
 let qtyFacts = 1;
 let maxFactsAllowed = 5;
-console.log("Qty facts request:", qtyFacts);
+//console.log("Qty facts request:", qtyFacts);
 
 // Event Listeners
-moreBtn.addEventListener('click', moreFacts);   // listening +facts button
-lessBtn.addEventListener('click', fewerFacts);  // listening -facts button
-
+btnMore.addEventListener('click', moreFacts);   // listening +facts btn
+btnLess.addEventListener('click', fewerFacts);  // listening -facts btn
+btnGetFacts.addEventListener('click', getFacts);// listening get facts btn
 
 
 //  ***  FETCH RESULTS  ***
-function fetchResults(queryURL) {         // fetch data from URL
+function fetchResults(queryURL) {  // fetch data from URL
   fetch(queryURL)
-  .then(function(response) {            // gets results and passes them into 'response'
-    console.log(response);
-    return response.json();             // JSONifies 'response'
-  })
-  .then(function(jsonData) {          // passes results in new function
-    console.log(jsonData);
-  });
+    .then(function(result) {     // gets results,pass into 'result'
+      console.log("First THEN complete!")
+      return result.json();        // JSONifies 'result'
+    })
+    .then(function(json) {       // passes results in new function
+      console.log("Second THEN complete!")
+      displayResults(json);
+      //console.log("Sent to displayResults");
+    });
 };
 
 
@@ -39,16 +42,21 @@ function fetchResults(queryURL) {         // fetch data from URL
 
 
 //  ***  DISPLAY RESULTS  ***
-function displayResults() {
-  console
-
-
-};  //  END OF DISPLAY RESULTS
+function displayResults(json) {
 
 
 
+  for(let i = 0; i < qtyFacts; i++) {
+    console.log(json[i].text);
+  }
 
 
+
+
+
+
+
+};  //  END OF displayResults Function
 
 
 
@@ -56,36 +64,35 @@ function displayResults() {
 
 //  *****   BUTTON FUNCTIONS   *****
 
+//  Get Facts button
+function getFacts(e) {
+  updateDisplay(qtyFacts)
+};    // END OF getFacts Function
+
+// One More Button
 function moreFacts(e) {
   if(qtyFacts < maxFactsAllowed) {
     qtyFacts++;
   } else { 
     return;
   }
-  updateDiplay(qtyFacts)
-};      //  END OF DISPLAY RESULTS
+  showQtyFacts.innerText = qtyFacts;
+};      //  END OF moreFacts Function
 
-
+// One Less Button
 function fewerFacts(e) {   
   if(qtyFacts > 1) {
     qtyFacts--;
   } else { 
     return;
   }
-  updateDiplay(qtyFacts)
-
-};      //  END OF DISPLAY RESULTS
-
-
-function updateDiplay(qtyFacts) {
-  queryURL = catFactsURL + qtyFacts;
   showQtyFacts.innerText = qtyFacts;
-  fetchResults(queryURL);
+};      //  END OF fewerFacts Function
+
+// Update Display - the primary execution function
+function updateDisplay(qtyFacts) {
   console.log("# of Facts:", qtyFacts);
-};
-
-
-// ***** MAIN *****
-queryURL = catFactsURL + qtyFacts;
-console.log(queryURL);
-//fetchResults(queryURL);
+  queryURL = catFactsURL + qtyFacts;
+  console.log("The URL:", queryURL);
+  fetchResults(queryURL);
+};    // END OF UPDATE DISPLAY

@@ -72,7 +72,6 @@ https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=AgRGQivYLCNUNJp
     return result.json();         // and convert those results into a json object
   })                              // once that promis is resolved
     .then(function(json) {        // the json is passed to a new function that then
-      //console.log(json);  REMOVED in Display Results-01logs the json-object ('json') to the console
       displayResults(json);       // moved the console.log to a displayResults() function
   });
 
