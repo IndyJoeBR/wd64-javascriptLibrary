@@ -1,6 +1,27 @@
 body {
+  background-color: black;
   max-width: 900px
 }
+
+.catHead {
+  display: flex;
+  flex-direction: row;
+  color: red;
+  flex-wrap: nowrap;
+  width:auto;
+  border: thick black solid;
+  min-width: 675px;
+  background-color: black;
+}
+
+.leftEye {
+  
+}
+
+.rightEye {
+
+}
+  
 
 .interactives-container {
   display: flex;
@@ -10,18 +31,24 @@ body {
   width: auto;
   margin: auto;
   align-items: center;
+  border: thick green solid;
+}
+
+h1 {
+  text-align: center;
 }
 
 .buttons-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: thin red solid;
+  border: thin blue solid;
   height: 50px;
   justify-content: center;
   width: 20%;
   margin: auto;
   align-items: center;
+  min-width: 150px;
 }
 
 .button {
@@ -32,10 +59,12 @@ body {
 
 .less {
   float: left;
+  clear: left;
 }
 
 .more {
   float: right;
+  clear: right;
 }
 
 .qtyOfFacts{
@@ -48,6 +77,64 @@ body {
   }
 
 div {
-  border: thin red solid;
+  border: thin pink solid;
   margin: 10px;
+}
+.resultsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  width: auto;
+  margin: auto;
+  align-items: center;
+}
+
+.factsDisplayWrapper {
+
+}
+
+section {
+
+}
+
+.aCatFact {
+  background-color: pink;
+  max-width: 400px;
+  text-align: center;
+}
+
+.catFactsHeader {
+  background-color: pink;
+  width: 400px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.theTip {
+  background-color: pink;
+  height: 50px;
+  width: 400px;
+  border-bottom-right-radius: 240px;
+  border-bottom-left-radius: 240px;
+}
+
+.details {
+  display: flex;
+  border: thin yellow solid;
+  min-width: 220px;
+  justify-content: center;
+}
+
+.muzzle {
+  display: flex;
+  background-color: black;
+  width: 400px;
+  justify-content: center;
+}
+
+.noseAndWhiskers {
+  max-width: 100%;
+  max-height: 80px;
 }

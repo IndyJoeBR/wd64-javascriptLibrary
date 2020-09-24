@@ -10,11 +10,11 @@ const btnGetFacts = document.querySelector('.btnGetFacts');
 
 // Results Display
 const displaySection = document.querySelector('section');
+let theCatFactToDisplay = "";
 
 // Number of results
 let qtyFacts = 1;
 let maxFactsAllowed = 5;
-//console.log("Qty facts request:", qtyFacts);
 
 // Event Listeners
 btnMore.addEventListener('click', moreFacts);   // listening +facts btn
@@ -25,14 +25,11 @@ btnGetFacts.addEventListener('click', getFacts);// listening get facts btn
 //  ***  FETCH RESULTS  ***
 function fetchResults(queryURL) {  // fetch data from URL
   fetch(queryURL)
-    .then(function(result) {     // gets results,pass into 'result'
-      console.log("First THEN complete!")
-      return result.json();        // JSONifies 'result'
+    .then(function(response) {     // gets results, pass into 'response'
+      return response.json();        // JSONifies 'response'
     })
-    .then(function(json) {       // passes results in new function
-      console.log("Second THEN complete!")
-      displayResults(json);
-      //console.log("Sent to displayResults");
+    .then(function(json) {         // passes JSONified results to new function
+      displayResultsLoop(json);    //    the display loop
     });
 };
 
@@ -42,21 +39,44 @@ function fetchResults(queryURL) {  // fetch data from URL
 
 
 //  ***  DISPLAY RESULTS  ***
-function displayResults(json) {
+function displayResultsLoop(json) {
+
+  // Loop removes previous facts
+  while (displaySection.firstChild) {     
+    displaySection.removeChild(displaySection.firstChild);  
+  } 
+
+  // IF determines if incoming data is array or object
+  if(qtyFacts === 1) {    // API sends one array
+    //console.log(json.text)           // *****  DELETE THIS   *****
+    displayResultsToPage(json.text);
+  } else {
+    for(let i = 0; i < qtyFacts; i++) {   // API send arrays in one object
+      //console.log(json[i].text);           // *****  DELETE THIS   *****
+      displayResultsToPage(json[i].text);
+    }
+  }   // End of iteration display loop
+
+
+  function displayResultsToPage(theCatFactToDisplay) {
+    console.log(theCatFactToDisplay);           // *****  DELETE THIS   *****
+
+    let displayText = document.createElement('h6');
+    displayText.textContent = theCatFactToDisplay;
+ 
+    let displayDiv = document.createElement('div');
+    displayDiv.className = 'aCatFact';
+
+    displayDiv.appendChild(displayText);
+    displaySection.appendChild(displayDiv);
+
+
+  }   //  End of displayResultsToPage Function
 
 
 
-  for(let i = 0; i < qtyFacts; i++) {
-    console.log(json[i].text);
-  }
 
-
-
-
-
-
-
-};  //  END OF displayResults Function
+};  //  END OF displayResultsLoop Function
 
 
 
@@ -65,34 +85,39 @@ function displayResults(json) {
 //  *****   BUTTON FUNCTIONS   *****
 
 //  Get Facts button
-function getFacts(e) {
+function getFacts() {
   updateDisplay(qtyFacts)
 };    // END OF getFacts Function
 
+
 // One More Button
-function moreFacts(e) {
+function moreFacts() {
   if(qtyFacts < maxFactsAllowed) {
     qtyFacts++;
-  } else { 
+  } else {
+    window.alert(`You may only receive a maximum of ${maxFactsAllowed} cat facts at a time!`);
     return;
   }
   showQtyFacts.innerText = qtyFacts;
 };      //  END OF moreFacts Function
 
+
 // One Less Button
-function fewerFacts(e) {   
+function fewerFacts() {   
   if(qtyFacts > 1) {
     qtyFacts--;
-  } else { 
+  } else {
+    window.alert(`Certainly you want at least one cat fact!`);
     return;
   }
   showQtyFacts.innerText = qtyFacts;
 };      //  END OF fewerFacts Function
 
-// Update Display - the primary execution function
+
+// Update Display (the primary execution function)
 function updateDisplay(qtyFacts) {
-  console.log("# of Facts:", qtyFacts);
+  console.log("# of Facts:", qtyFacts);           // *****  DELETE THIS   *****
   queryURL = catFactsURL + qtyFacts;
-  console.log("The URL:", queryURL);
+  console.log("The URL:", queryURL);              // *****  DELETE THIS   *****
   fetchResults(queryURL);
 };    // END OF UPDATE DISPLAY
