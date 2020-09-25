@@ -1,12 +1,27 @@
 body {
   background-color: black;
-  max-width: 900px
+  max-width: 900px;
+  font-family: sans-serif;
+}
+
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+
+.primaryContainer {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -400px;
 }
 
 .catHead {
   display: flex;
   flex-direction: row;
-  color: red;
   flex-wrap: nowrap;
   width:auto;
   border: thick black solid;
@@ -15,7 +30,7 @@ body {
 }
 
 .leftEye {
-  
+  transform: scaleX(-1);     /* This flips the eye on the horizontal */
 }
 
 .rightEye {
@@ -38,6 +53,10 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  font-weight: bold;
+}
+
 .buttons-container {
   display: flex;
   flex-direction: row;
@@ -51,29 +70,33 @@ h1 {
   min-width: 150px;
 }
 
-.button {
-  border: thin solid black;
-  height: 20px;
-  width: 20px;
-}
-
 .less {
   float: left;
   clear: left;
+  font-size: 20px;
 }
 
 .more {
   float: right;
   clear: right;
+  font-size: 20px;
+}
+
+.btnGetFacts {
+  font-size: 16px;
+  color: whitesmoke;
 }
 
 .qtyOfFacts{
-  height: 30px;
+  color: rgb(221, 103, 60);
+  height: 40px;
   width: 20%;
   font-size: 25px;
   font-weight: bold;
   position: relative;
   margin: auto;
+  text-align: center;
+  font-size: 24px;
   }
 
 div {
@@ -97,13 +120,15 @@ div {
 
 section {
   background-color: pink;
+  border-left: thick solid #FFB1B1;
+  border-right: thick solid #FFB1B1;
   max-width: 400px;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .aCatFact {
@@ -116,6 +141,9 @@ section {
 
 .catFactsHeader {
   background-color: pink;
+  border-left: thick solid #FFB1B1;
+  border-right: thick solid #FFB1B1;
+  border-top: thick solid #FFB1B1;
   width: 400px;
   text-align: center;
   border-top-left-radius: 10px;
@@ -126,6 +154,9 @@ section {
 
 .theTip {
   background-color: pink;
+  border-left: thick solid #FFB1B1;
+  border-right: thick solid #FFB1B1;
+  border-bottom: thick solid #FFB1B1;
   height: 50px;
   width: 400px;
   border-bottom-right-radius: 240px;

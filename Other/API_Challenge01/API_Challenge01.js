@@ -85,13 +85,17 @@ function displayResultsLoop(json) {
 //  *****   BUTTON FUNCTIONS   *****
 
 //  Get Facts button
-function getFacts() {
+function getFacts(e) {
+  console.log("--------------------------");
+  console.log("What is passed in 'e':");
+  console.log(e);
+  console.log("--------------------------");
   updateDisplay(qtyFacts)
 };    // END OF getFacts Function
 
 
 // One More Button
-function moreFacts() {
+function moreFacts(e) {
   if(qtyFacts < maxFactsAllowed) {
     qtyFacts++;
   } else {
@@ -103,7 +107,7 @@ function moreFacts() {
 
 
 // One Less Button
-function fewerFacts() {   
+function fewerFacts(e) {   
   if(qtyFacts > 1) {
     qtyFacts--;
   } else {
