@@ -31,7 +31,7 @@ body {
   width: auto;
   margin: auto;
   align-items: center;
-  border: thick green solid;
+/*  border: thin green solid; */
 }
 
 h1 {
@@ -42,7 +42,7 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: thin blue solid;
+/*  border: thin blue solid; */
   height: 50px;
   justify-content: center;
   width: 20%;
@@ -77,7 +77,7 @@ h1 {
   }
 
 div {
-  border: thin pink solid;
+  /*border: thin pink solid;  */
   margin: 10px;
 }
 .resultsWrapper {
@@ -91,17 +91,27 @@ div {
 }
 
 .factsDisplayWrapper {
-
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 section {
-
+  background-color: pink;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .aCatFact {
   background-color: pink;
   max-width: 400px;
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .catFactsHeader {
@@ -110,6 +120,8 @@ section {
   text-align: center;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .theTip {
@@ -118,11 +130,13 @@ section {
   width: 400px;
   border-bottom-right-radius: 240px;
   border-bottom-left-radius: 240px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .details {
   display: flex;
-  border: thin yellow solid;
+/*  border: thin yellow solid; */
   min-width: 220px;
   justify-content: center;
 }
@@ -132,6 +146,8 @@ section {
   background-color: black;
   width: 400px;
   justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 
 .noseAndWhiskers {
