@@ -26,11 +26,6 @@ body {
   transform: scaleX(-1);     /* This flips the eye on the horizontal */
 }
 
-.rightEye {
-
-}
-  
-
 .interactives-container {
   display: flex;
   flex-direction: column;
@@ -130,6 +125,8 @@ section {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .catFactsHeader {
