@@ -47,7 +47,7 @@ function fetchResults(e) {        // 'e' is will be the object we are working wi
       // Below the full URL is assembled by concatenating a string
       // This URL is going to take use directly to our result so we can access the data
   url = baseURL + '?api-key=' + key + '&page=' + pageNumber + '&q=' + searchTerm.value;
-  console.log(url);               // log the url string to oggle at the beautiful concat
+  console.log(url);               // log the url string to oggle at the beautiful concatenation
 
   /* EXAMPLE - The resulting URL for 'javascript' is:
 https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=AgRGQivYLCNUNJpdiHPKjkn0MP4PG1gG&page=0&q=javascript
@@ -83,11 +83,17 @@ https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=AgRGQivYLCNUNJp
 function displayResults(json) {
 
   // WHILE LOOP cycles through the section, deleting previous search results
-  while (section.firstChild) {                // while there is a firstChild in the section it loops
+  while (section.firstChild) {      // while there is a firstChild in the section it loops
     section.removeChild(section.firstChild);  // each time it clears out the firstChild 
-  }                                           // finally its empty; removing previous search results
+  };                                 // finally its empty; removing previous search results
+  
+  console.log("This is json.response:");
+  console.log(json.response);
 
-  let articles = json.response.docs;      // creates 'articles' as a reference to the json results
+  console.log("----------------------------------------");
+  console.log("This is right before json.response.docs!");
+  let articles = json.response.docs;      // creates 'articles' as a reference to the json results; 'docs' is the key, the array is the value
+
 
   // IF-ELSE shows or hides the previous/next buttons
   if(articles.length === 10 || pageNumber > 0) {   // shows buttons if above page 0 OR
