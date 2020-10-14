@@ -1,7 +1,10 @@
 //  BRING IN VARIABLES
+require('dotenv').config();          // Must be top of file, makes items in an .env package available to application
+
 var express = require('express');    // require use of express npm package we installed in dependencies
 var app = express();                 // create an instance of express
-var test = require('./controllers/testcontroller');   // imports the router object and store it in/call it 'test'
+var test = require('./controllers/testcontroller')   // imports the router object and store it in/call it 'test'
+var user = require('./controllers/usercontroller')   // imports usercontroller.js and store it in 'user'
 var sequelize = require('./db');  // sequelize variable imports db file
 
 
@@ -15,6 +18,10 @@ sequelize.sync(); // ensures that we sync all defined models to the DB
 app.use(express.json());  // MUST go above any routes;
 
 app.use('/test', test);
+
+app.use('/api/user', user);  // set route to endpoints for the api/user route
+// This could also be written out without the require statement above:
+//     app.use('/api/user', require('./controllers/usercontrollers'));
 
 
 
