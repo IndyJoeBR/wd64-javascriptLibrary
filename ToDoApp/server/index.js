@@ -1,10 +1,13 @@
 const Express = require('express'); // import express app
 
+const applicationSequelizeObject = require("./db");
 const applicationControllers = require('./controllers/index');   // goes into controllers/index.js 
 
-const expressApplicationObject = new Express(); // create Express object
+const expressApplicationObject = new Express();           // create Express object
+expressApplicationObject.use(Express.json());             // takes incoming data and turns it into json
 
 expressApplicationObject.use('/test', applicationControllers.test);   // whenever you see /test, use applicationControllers.test
+expressApplicationObject.use('/users', applicationControllers.users); 
 
 
 
@@ -25,9 +28,9 @@ expressApplicationObject.get('/', (request, response) => {
 //      ELSE : "<name>, you will be an adult soon!"
 
 // JSON in a request is a STRING
+/*
 
 
-expressApplicationObject.use(Express.json());             // takes incoming data and turns it into json
 
 expressApplicationObject.post("/challenge", (request, response) => {
   let data = request.body;
@@ -39,8 +42,34 @@ expressApplicationObject.post("/challenge", (request, response) => {
   response.send(message);
 });
 
-expressApplicationObject.listen(9001, () => { // start it listening on port 9001
-  console.log("[server]: App is listening on port 9001");
-});
+*/
 
+
+
+
+
+// *****   STARTUP PROCEDURE   *****
+// Verify connection to Postgres db
+// Synchronize Database with Models
+// Listen on specified port
+
+     // This is where connection to the DB begins
+applicationSequelizeObject.authenticate()           // Verify connection to Postres db
+  .then( () => applicationSequelizeObject.sync())   // Synchronize db with models
+  .then( () => {
+    expressApplicationObject.listen(9001, () => {   // start it listening on port 9001
+      console.log("[server]: App is listening on port 9001");
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+
+
+
+// UNTIL STARTUP IS COMPLETE
+/*
+
+*/
 

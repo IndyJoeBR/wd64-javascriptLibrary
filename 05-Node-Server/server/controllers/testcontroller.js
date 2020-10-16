@@ -19,7 +19,7 @@ router.post('/one', function(req, res) {
 2 - '/one' will be the endpoint/route used; so the route will be
        name: http://localhost:3000/test/one; when something goes
        to the endpoint, it fires the callback function (res.send)
-3 - when the client reqeusts the given endpoint, it sends this string       
+3 - when the client requests the given endpoint, it sends this string       
 */
 
 
@@ -143,6 +143,41 @@ router.post('/seven', function (req, res) {
       }
     );
 });    
+
+
+/* *****************************************
+      GET:  Get simple message from server
+   *****************************************
+*/
+router.get('/helloclient', function(req, res) {
+  res.send('This is a message from the server to the client.')
+})
+
+
+
+/* *****************************************
+      GET:  /one
+   *****************************************
+*/
+router.get('/one', function(req, res) {
+
+  TestModel
+    .findAll({      //1
+        attributes: ['id', 'testdata']
+      })
+      .then(
+          function findAllSuccess(data) {
+              console.log("Controller data:", data);
+          },
+          function findAllError(err) {
+            res.send(500, err.message);
+          }
+      );
+});
+
+/*
+1 - Notice that we find the attributes for two of the columns: id & testdata. This is part of sequelize. If you are querying an entire table, you can choose which columns you want to grab from. The other columns will not be queried, which can save time for a giant table.
+*/
 
 
 

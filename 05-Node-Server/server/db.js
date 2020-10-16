@@ -1,15 +1,15 @@
 const Sequelize = require('sequelize');  //1
 
         //2              //3       //4        //5          //6
-const sequelize = new Sequelize('workoutlog', 'postgres', 'WTFisThis2020', {
-//                                  db        user       db-password  
+const sequelize = new Sequelize('workoutlog', 'postgres', 'dbpassword', {
+//                                  db           user       db-password (changed from 'WTFisThis2020')
   host: 'localhost',   //7
   dialect: 'postgres'  //8
 });
 
 //  This should not be here because is may not finish before sequelize (it might not work) - it will be move elsewhere to a startup procedure
     //9       //10         //1
-/*sequelize.authenticate().then(
+sequelize.authenticate().then(
   function() {  //12
     console.log('Connected to workoutlog postgres database');
   },
@@ -17,7 +17,7 @@ const sequelize = new Sequelize('workoutlog', 'postgres', 'WTFisThis2020', {
     console.log(err);
   }
 );
-*/
+
                     //14
 module.exports = sequelize;
 
