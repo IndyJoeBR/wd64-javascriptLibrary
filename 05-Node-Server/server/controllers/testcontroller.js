@@ -161,19 +161,20 @@ router.get('/helloclient', function(req, res) {
 */
 router.get('/one', function(req, res) {
 
-  TestModel
-    .findAll({      //1
+  TestModel.findAll({      //1
         attributes: ['id', 'testdata']
       })
       .then(
           function findAllSuccess(data) {
-              console.log("Controller data:", data);
+              console.log("Controller data:", data);    // logs data to terminal and, in theory, the console
+              res.json(data);                           // JSONifies the data for use by the fetchOneDisplayData function
           },
           function findAllError(err) {
             res.send(500, err.message);
           }
-      );
+      ).catch((error) => console.log(error))
 });
+
 
 /*
 1 - Notice that we find the attributes for two of the columns: id & testdata. This is part of sequelize. If you are querying an entire table, you can choose which columns you want to grab from. The other columns will not be queried, which can save time for a giant table.

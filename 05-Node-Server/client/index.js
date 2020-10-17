@@ -117,17 +117,18 @@ function fetchOneDisplayData(){
   let url = "http://localhost:3000/test/one";      //1
   let dataView = document.getElementById('display-one');    // this does not exist; dataView not used, no id display-one or data-one
 
-  console.log("Step: Initial LETs complete")  // ***************  DELETE  *************
+  console.log("Step: Initial LETs complete")
 
-  fetch(url, {            //2
+  fetch(url, {            //2    This call the GET /one test controller which gets the table data and returns it JSONified
     method: 'GET',
     headers: new Headers({
       'Content-Type': 'application/json'
     })
   }).then(
       function(response){
-        console.log("Step: Through first .then(response)")  // ***************  DELETE  *************
+        //console.log(response.json);    // ***************  DELETE  *************
         return response.json()
+        //console.log("Step: Through first .then(response)")  // ***************  DELETE  *************
       })
     .catch(
       function(error){
@@ -147,7 +148,7 @@ function fetchOneDisplayData(){
           myList.appendChild(listItem);       //8
         }
       })
-    };      
+};      
 
 /*
 1 - We set up our URL in one variable and target the data-one id in the DOM in another one.

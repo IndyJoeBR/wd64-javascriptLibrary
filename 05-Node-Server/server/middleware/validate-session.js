@@ -1,36 +1,34 @@
-//   ADDED FOR Validate Session
-//        NOT THERE YET
-
-/*
 var jwt = require('jsonwebtoken');
-var sequelize = require('../db');
-var User = sequelize.import('../models/user');
+var sequelize = require('../db');              // ****  no longer needed, previously require for import statement (#4)
+//var User = require('../models/user');   
+var User = sequelize.import('../models/user');                             //****************    The older way
+//let User = require('../models/user')( sequelize, require('sequelize') );   //****************    The old way
+
 
 module.exports = function(req, res, next) {
   if (req.method == 'OPTIONS') {
-    next()
+      next()
   } else {
     var sessionToken = req.headers.authorization;  //1
-    console.log(sessoinToken)                      //2
+    console.log(sessionToken)                      //2
     if (!sessionToken) return res.status(403).send({ auth: false, message: 'No token provided. '});
     else {      //4
       jwt.verify(sessionToken, process.env.JWT_SECRET, (err, decoded) => {    //5
-        if(decoded) {
+        if(decoded){
           User.findOne({where: { id: decoded.id}}).then(user => {     //6
             req.user = user;      //7
-          next();
-        },
-        function(){       //8
-          res.status(401).send({error: 'Not authorized'});
+            next();
+          },
+          function(){       //8
+            res.status(401).send({error: 'Not authorized'});
         });
-      } else {          //9
+        } else {          //9
           res.status(400).send({error: 'Not authorized'});
         }
       });
     }
   }
 };
-*/
 
 
 /*
