@@ -111,7 +111,7 @@ router.delete('/delete/:id', function(req, res) {
 
 
 /******************************************
-***   DELETE ITEM FOR INDIVIDUAL USER
+***   UPDATE ITEM FOR INDIVIDUAL USER
 *******************************************/
          //1    //2
 router.put('/update/:id', function(req, res) {

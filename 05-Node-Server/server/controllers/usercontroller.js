@@ -12,15 +12,12 @@ var jwt = require('jsonwebtoken');              // added for user authentication
 // start out our POST method for a createuser endpoint
 router.post('/createuser', function (req, res) {
 
-  //var username = "The Dude";                // basic user data, but created
-  //var pass = "therugtiedtheroomtogether";   // inside the method
-
   var username = req.body.user.username;
-  var pass = req.body.user.password;
+  var userpassword = req.body.user.password;
 
   User.create({
     username: username,
-    passwordhash: bcrypt.hashSync(pass, 10)
+    passwordhash: bcrypt.hashSync(userpassword, 10)
 
   }).then(
     function createSuccess(user) {
