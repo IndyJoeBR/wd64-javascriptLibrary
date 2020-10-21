@@ -81,6 +81,10 @@ ul {
   margin-top: 0.8em!important;
 }
 
+.displayCard {
+  border: thin black solid;
+  width: 360px;
+}
 
 /*   ORIGINAL CSS CODE
 .App {
