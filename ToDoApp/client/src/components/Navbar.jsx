@@ -14,9 +14,11 @@ import {
   NavItem
 } from 'reactstrap';
 
+import { Link  } from 'react-router-dom';
+
+
 const NavbarComponent = () => {
 
-  
 //         var      function
   const [ isOpen, changeIsOpen ] = useState(false); //'false' is the initial state of both isOpen and changeIsOpen, they get it from useState
 
@@ -33,7 +35,9 @@ const NavbarComponent = () => {
             <p>Lists</p>
           </NavItem>
           <NavItem>
-            <p>Login</p>
+            <Link to="/login">
+              Login
+            </Link>
           </NavItem>
         </Nav>
       </Collapse>

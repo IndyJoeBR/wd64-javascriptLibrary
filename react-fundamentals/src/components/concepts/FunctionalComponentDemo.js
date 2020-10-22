@@ -3,17 +3,16 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
-//import FatArrowIMage from '.../Assets/The-Fat-Arrow-Function-in-ES6-cover-image.jpg';
-//import RJSHelloWorld from '.../Assets/ReactJSHelloWorld.png';
+import FatArrowIMage from '../../Assets/The-Fat-Arrow-Function-in-ES6-cover-image.jpg';
+import RJSHelloWorld from '../../Assets/ReactJSHelloWorld.png';
 
 const FunctionalComponentDemo = () => {
 
   let fatArrow = "=>";
- // const fatArrowImage = require(".../Assets/The-Fat-Arrow-Function-in-ES6-cover-image.jpg");
+
 
   return (
     <div className="main">
-
 
       <div className="mainDiv">
         <h2>Functional Component</h2>
@@ -45,8 +44,9 @@ const FunctionalComponentDemo = () => {
 
       <div>
         <h2>Challenge</h2>
+        <p></p>
         <Card className="displayCard">
-          <CardImg top width="400px" src="/" alt="Card image cap" />
+          <CardImg top width="400px" src={FatArrowIMage} alt="Card image cap" />
           <CardBody>
             <CardTitle>Fat Arrow Function</CardTitle>
             <CardSubtitle>A JS Library</CardSubtitle>
@@ -56,7 +56,7 @@ const FunctionalComponentDemo = () => {
         </Card>
 
         <Card className="displayCard">
-          <CardImg top width="400px" src="/" alt="Card image cap" />
+          <CardImg top width="400px" src={RJSHelloWorld} alt="Card image cap" />
           <CardBody>
             <CardTitle>Regular Ol' Function</CardTitle>
             <CardSubtitle>A JS Library</CardSubtitle>
@@ -64,7 +64,6 @@ const FunctionalComponentDemo = () => {
             <Button>Go Somewhere, yo</Button>
           </CardBody>
         </Card>
-
       </div>
 
 
