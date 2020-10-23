@@ -30,12 +30,29 @@ const SampleEffect = () => {
   const [timerRunning, setTimerRunning] = useState(false);
 
   useEffect( () => {
-    console.log('We initiated a state change')
+    console.log('we initiated a state change');
+    let timer;
+    if (timerRunning) {
+      timer = window.setTimeout( () => {
+        console.log('the timer expired', Date.now()/1000);
+        setTimerRunning(false);
+      }, 2000)
+      }
+    return () => {
+      {window.clearTimeout(timer)};
+      console.log('the timer was cleaned out',
+      Date.now()/1000)
+    };
   })
 
-  let buttonHandler = () => {
-    if (!timerRunning) {
-      setTimerRunning(true);
+  useEffect( () => {
+    console.log('This painting needs some happy trees.');
+    console.log('And maybe a happy little cloud here.');
+  }, [timerRunning])    // There is no dependency, it just happens
+
+  let buttonHandler = () => {       
+    if (!timerRunning) {              //  if the not-timerRunning 
+      setTimerRunning(true);          //  setTimerRunning sets timerRunning to true
     };
   };
 
