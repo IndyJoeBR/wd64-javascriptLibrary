@@ -25,17 +25,14 @@ const LoginComponent= (props) => {
     //     authenticateUser function with that token
     // if false, display error message, but nothing further
     if (email && password) {              // 'falsey' if empty
-      fetch('https://localhost:8080/user/login', {
+      fetch('http://localhost:8080/user/login', {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-                },
-        body: JSON.stringify({
-          email: email,
-          password: password
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email, password: password })
       })
-    }).then( response => response.json())
+      .then( response => response.json())
       .then( data => {                      // 'data' is the object sent back
+        console.log(data)
         props.authenticateUser(data.token)  // we give it just the token from body
       })
       .catch((error) => console.log(error));

@@ -17,7 +17,7 @@ import {
 import { Link  } from 'react-router-dom';
 
 
-const NavbarComponent = () => {
+const NavbarComponent = (props) => {
 
 //         var      function
   const [ isOpen, changeIsOpen ] = useState(false); //'false' is the initial state of both isOpen and changeIsOpen, they get it from useState
@@ -31,14 +31,28 @@ const NavbarComponent = () => {
       <NavbarToggler onClick={ toggleNavbarMenu } />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
-          <NavItem>
-            <p>Lists</p>
-          </NavItem>
-          <NavItem>
-            <Link to="/login">
-              Login
-            </Link>
-          </NavItem>
+          { props.isLoggedIn ? (
+                  <>
+                    <NavItem className="roomToBreathe">
+                      <p>Lists</p>
+                    </NavItem>
+
+                    <NavItem className="roomToBreathe">
+                      <p>Logout</p>
+                    </NavItem>
+
+                  </>
+              ) : (
+                  <>
+                    <NavItem className="roomToBreathe">
+                      <Link to="/login">Login</Link>
+                    </NavItem>
+                    <NavItem className="roomToBreathe">
+                      <Link to="/register">Register</Link>
+                    </NavItem>
+                  </>
+              )
+          }
         </Nav>
       </Collapse>
     </Navbar>
