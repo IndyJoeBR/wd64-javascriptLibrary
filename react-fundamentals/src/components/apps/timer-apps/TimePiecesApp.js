@@ -1,7 +1,7 @@
 import React from 'react';
 import TimerApp from './TimerApp';
-// import ClockApp from './ClockApp';
-// import StopWatchApp from './StopWatchApp'
+import ClockApp from './ClockApp';
+import StopWatchApp from './StopWatchApp'
 
 
 const TimePiecesApp = () => {
@@ -9,10 +9,10 @@ const TimePiecesApp = () => {
         <div className="main">
             <div className="mainDiv">
                 <TimerApp />
-                {/* <hr />
+                <hr />
                 <ClockApp />
                 <hr />
-                <StopWatchApp /> */}
+                <StopWatchApp />
             </div>
         </div>
     )
