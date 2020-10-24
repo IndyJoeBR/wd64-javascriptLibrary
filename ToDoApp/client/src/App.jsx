@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';         // imports the CSS file (instead of link in html)
+import ListsComponent from './components/Lists.jsx';
 import LoginComponent from './components/Login.jsx';
 import NavbarComponent from './components/Navbar.jsx';
 import RegisterComponent from './components/Register.jsx';
@@ -42,7 +43,10 @@ function App() {
               <LoginComponent authenticateUser={authenticateUser} />
             </Route>
             <Route exact path="/register">
-              <RegisterComponent />
+              <RegisterComponent authenticateUser={authenticateUser} />
+            </Route>
+            <Route exact path="/myLists">
+            <ListsComponent token={authenticationJWT}/>
             </Route>
           </Switch>
           

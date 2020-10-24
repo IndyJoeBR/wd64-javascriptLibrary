@@ -5,4 +5,14 @@
 
 .roomToBreathe {
   padding-right: 20px;
+
+}
+
+.authForm {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: thin solid lightgray;
+  background-color: white;
+
 }

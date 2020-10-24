@@ -11,8 +11,8 @@ TodoController.get("/", async (req, res) => {
       },
     });
     if (lists) {
-      res.status(200).json({
-        results: lists,
+      res.status(200).json({          // will return an object of
+        results: lists,               // a key and a value (lists) 
       });
     } else {
       res.status(404).json({

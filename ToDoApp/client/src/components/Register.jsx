@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import "../styles/Register.css";
 
 const RegisterComponent = (props) => {
 
@@ -43,8 +44,10 @@ const handleUserRegistration = (event) => {
         body: JSON.stringify({ email: registrationEmail, password: registrationPassword })
       })
       .then( response => response.json() )      // jsonifies the success reponse
-      .then( () => {
+      .then( (json) => {                        // added 'json'
         console.log("User is registered");
+        console.log(json.message);              // added line
+        props.authenticateUser(json.token);     // added line
       })
       .catch((error) => console.log(error));
     } else {
@@ -57,7 +60,7 @@ const handleUserRegistration = (event) => {
 
 
   return (
-    <Form onSubmit={handleUserRegistration}>
+    <Form className="authForm" id="registerForm" onSubmit={handleUserRegistration}>
         <h3>Register</h3>
       <FormGroup>
           <Label htmlFor="registrationEmailField">Email: </Label>

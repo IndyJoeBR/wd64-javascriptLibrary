@@ -1,5 +1,6 @@
 import React, { useState } from 'react';     // same as   const React = require('react');
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import "../styles/Login.css";
 
 const LoginComponent= (props) => {
 
@@ -41,28 +42,23 @@ const LoginComponent= (props) => {
 
 
   return (
-    <div>
-      <Form onSubmit={handleLoginSubmit}>
-        <h3>Login</h3>
+    <Form className="authForm" id="loginForm" onSubmit={handleLoginSubmit}>
+      <h3>Login</h3>
       <FormGroup>
-          <Label htmlFor="emailField">Email: </Label>
-          <Input onChange={triggerEmailInputChange} value={email} type="email" name="email" id="emailField" />
+        <Label htmlFor="emailField">Email: </Label>
+        <Input onChange={triggerEmailInputChange} value={email} type="email" name="email" id="emailField" />
 
-        </FormGroup>
+      </FormGroup>
 
-        <FormGroup>
-          <Label htmlFor="passwordField">Password: </Label>
-          <Input onChange={triggerPasswordInputChange} value={password} type="password" name="password" id="passwordField" />
+      <FormGroup>
+        <Label htmlFor="passwordField">Password: </Label>
+        <Input onChange={triggerPasswordInputChange} value={password} type="password" name="password" id="passwordField" />
 
-        </FormGroup>
+      </FormGroup>
 
-        <Button>Login</Button>
+      <Button>Login</Button>
 
-      </Form>
-
-
-
-    </div>
+    </Form>
   )
 };
 

@@ -34,7 +34,7 @@ const NavbarComponent = (props) => {
           { props.isLoggedIn ? (
                   <>
                     <NavItem className="roomToBreathe">
-                      <p>Lists</p>
+                      <Link to="/myLists">My Lists</Link>
                     </NavItem>
 
                     <NavItem className="roomToBreathe">
